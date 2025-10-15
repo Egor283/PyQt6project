@@ -7,8 +7,13 @@ from PyQt6.QtGui import QPixmap, QImage
 from PyQt6.QtWidgets import QApplication, QMainWindow, QButtonGroup, QWidget
 from Project import *
 from main_win_design import Ui_MainWindow
-from ratio_square import SecondForm
+from square import Square
 from confirmation import Confirmation
+from line import Line
+from module import Module
+from root import Root
+from cubic import Cubic
+from fraction import Fraction
 
 
 class Main_Win(QMainWindow, Ui_MainWindow):
@@ -36,17 +41,22 @@ class Main_Win(QMainWindow, Ui_MainWindow):
             if i.isChecked():
                 self.radio_button = i.text()[-2]
         if self.radio_button == '1':
-            pass
+            self.line = Line(self)
+            self.line.show()
         elif self.radio_button == '2':
-            pass
+            self.module = Module(self)
+            self.module.show()
         elif self.radio_button == '3':
-            pass
+            self.root = Root(self)
+            self.root.show()
         elif self.radio_button == '4':
-            pass
+            self.cubic = Cubic(self)
+            self.cubic.show()
         elif self.radio_button == '5':
-            pass
+            self.fraction = Fraction(self)
+            self.fraction.show()
         elif self.radio_button == '6':
-            self.second_form = SecondForm(self, self.radio_button)
+            self.second_form = Square(self, self.radio_button)
             self.second_form.show()
         else:
             self.confirmation = Confirmation(self)

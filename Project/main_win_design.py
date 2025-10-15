@@ -62,9 +62,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Главное окно"))
-        self.label_2.setText(_translate("MainWindow", "Выберите тип графика"))
+        self.label_2.setText(_translate("MainWindow", "Выберите тип функции"))
         self.pushButton.setText(_translate("MainWindow", "Далее ->"))
-        self.radioButton.setText(_translate("MainWindow", "Линейная функция(рис.1)"))
+        self.radioButton.setText(_translate("MainWindow", "Линейная(рис.1)"))
         self.radioButton_2.setText(_translate("MainWindow", "Модуль(рис.2)"))
         self.radioButton_3.setText(_translate("MainWindow", "Корень(рис.3)"))
         self.radioButton_4.setText(_translate("MainWindow", "Кубическая парабола(рис.4)"))
