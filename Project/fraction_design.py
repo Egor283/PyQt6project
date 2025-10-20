@@ -10,10 +10,10 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Fraction_design(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(350, 150)
-        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(350, 150)
+        self.centralwidget = QtWidgets.QWidget(parent=Form)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(30, 5, 231, 41))
@@ -39,18 +39,13 @@ class Fraction_design(object):
         font.setPointSize(12)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
-        self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 411, 26))
-        self.menubar.setObjectName("menubar")
-        self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
-        self.statusbar.setObjectName("statusbar")
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Fraction"))
-        self.label.setText(_translate("MainWindow", "Веддите коэффициент k:"))
-        self.label_2.setText(_translate("MainWindow", "Веддите коэффициент b:"))
-        self.pushButton.setText(_translate("MainWindow", "Далее ->"))
+        Form.setWindowTitle(_translate("Form", "Fraction"))
+        self.label.setText(_translate("Form", "Веддите коэффициент k:"))
+        self.label_2.setText(_translate("Form", "Веддите коэффициент b:"))
+        self.pushButton.setText(_translate("Form", "Далее ->"))

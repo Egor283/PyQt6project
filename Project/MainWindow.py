@@ -1,11 +1,8 @@
 import io
 import sys
-import numpy as np
-import matplotlib.pyplot as plt
 from PyQt6 import uic
 from PyQt6.QtGui import QPixmap, QImage
 from PyQt6.QtWidgets import QApplication, QMainWindow, QButtonGroup, QWidget
-from Project import *
 from main_win_design import Ui_MainWindow
 from square import Square
 from confirmation import Confirmation
@@ -56,7 +53,7 @@ class Main_Win(QMainWindow, Ui_MainWindow):
             self.fraction = Fraction(self)
             self.fraction.show()
         elif self.radio_button == '6':
-            self.second_form = Square(self, self.radio_button)
+            self.second_form = Square(self)
             self.second_form.show()
         else:
             self.confirmation = Confirmation(self)
