@@ -11,7 +11,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 class Description_line_design(object):
     def setupUi(self, Form):
-        Form.setObjectName("MainWindow")
+        Form.setObjectName("Form")
         Form.resize(500, 254)
         self.label = QtWidgets.QLabel(parent=Form)
         self.label.setGeometry(QtCore.QRect(30, 20, 451, 41))

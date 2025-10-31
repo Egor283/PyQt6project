@@ -41,6 +41,8 @@ class Description_line_function(QWidget, Description_line_design):
         else:
             self.label_2.setText(f'f(x) параллельно оси Ox')
         self.label_3.setText(f'Пересечение с осью y (0;{self.b})')
+        self.x_0 = -int(self.b) / int(self.k)
+        self.label_4.setText(f'Нули функции y = 0 при x = {self.x_0}, ({self.x_0};0)')
         fig, ax = plt.subplots()
         k, b = float(self.k), float(self.b)
         ax.set_ylim(-20, 20)
@@ -49,7 +51,8 @@ class Description_line_function(QWidget, Description_line_design):
         ax.grid()
         x = np.linspace(-20, 20, 100)
         y = k * x + b
-        plt.xlabel(' Ось x', fontsize=14)
+        plt.xlabel('Ось x', fontsize=14)
         plt.ylabel('Ось y', fontsize=14)
         plt.title('График', fontsize=14)
         ax.plot(x, y)
+        plt.show()
