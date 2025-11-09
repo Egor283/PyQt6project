@@ -25,18 +25,17 @@ class Description_root_function(QWidget, Description_root_function_design):
 
     def initUi(self):
         self.pushButton.clicked.connect(self.doo)
-        if float(self.k) and float(self.b):
-            self.label.setText(f'y = √{self.k_label}x + {self.b} ; линейная функция, графиком является прямая')
-        elif float(self.k) and not float(self.b):
-            if self.k == '1':
-                self.label.setText(f'y = √x ; линейная функция, графиком является прямая')
-            elif self.k == '-1':
-                self.label.setText(f'y = √-x ; линейная функция, графиком является прямая')
+        k, b = float(self.k), float(self.b)
+        if k and b:
+            if b > 0:
+                self.label.setText(f'y = √{self.k_label}x + {self.b} ; линейная функция, графиком является прямая')
             else:
-                self.label.setText(f'y = √{self.k_label}x ; линейная функция, графиком является прямая')
+                self.label.setText(f'y = √{self.k_label}x - {self.b[1:]} ; линейная функция, графиком является прямая')
+        elif k and not b:
+            self.label.setText(f'y = √{self.k_label}x ; линейная функция, графиком является прямая')
         else:
             self.label.setText(f'y = √{self.b} ; линейная функция, графиком является прямая')
-        if float(self.k) > 0:
+        if k > 0:
             self.label_3.setText(f'f(x) ↗ возрастает')
             if self.b == '0':
                 self.x_0 = 0
@@ -44,38 +43,41 @@ class Description_root_function(QWidget, Description_root_function_design):
             else:
                 self.x_0 = round(-float(self.b) / float(self.k), 2)
                 self.label_2.setText(f'D(f) x = ({self.x_0};+∞);E(f) y = (0;+∞)')
-        elif float(self.k) < 0:
+        elif k < 0:
             self.label_3.setText(f'f(x) ↘ убывает')
-            if self.b == '0':
-                self.x_0 = 0
-                self.label_2.setText(f'D(f) x = (-∞;{self.x_0});E(f) y = (0;+∞)')
+            if b == 0:
+                x_0 = 0
+                self.label_2.setText(f'D(f) x = (-∞;{x_0});E(f) y = (0;+∞)')
             else:
-                self.x_0 = round(-float(self.b) / float(self.k), 2)
-                self.label_2.setText(f'D(f) x = (-∞;{self.x_0});E(f) y = (0;+∞)')
+                x_0 = round(-float(self.b) / k, 2)
+                self.label_2.setText(f'D(f) x = (-∞;{x_0});E(f) y = (0;+∞)')
         else:
             self.label_3.setText(f'f(x) параллельно оси Ox')
-        if float(self.b) >= 0:
-            self.label_4.setText(f'Пересечение с осью y (0;{self.b})')
+            if b:
+                self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = {round(b ** 0.5, 2)}')
+            else:
+                self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = 0')
+        if b >= 0:
+            self.label_4.setText(f'Пересечение с осью y (0;{round(b ** 0.5, 2)})')
         else:
             self.label_4.setText(f'Пересечение с осью y не существует')
-        if self.k == '0' and self.b != '0':
+        if k == 0 and b != 0:
             self.label_5.setText(f'Нулей не существует')
             x = np.linspace(-20, 20, 10000)
-        elif self.k == '0' and self.b == '0':
+        elif k == 0 and b == 0:
             self.label_5.setText(f'Нули функции y = 0 при любом x')
             x = np.linspace(-20, 20, 10000)
         else:
-            if self.b == '0':
-                self.x_0 = 0
+            if b == 0:
+                x_0 = 0
             else:
-                self.x_0 = round(-float(self.b) / float(self.k), 2)
-            self.label_5.setText(f'Нули функции y = 0 при x = {self.x_0}, ({self.x_0};0)')
-            if float(self.k) > 0:
-                x = np.linspace(self.x_0, 20, 10000)
+                x_0 = round(-float(self.b) / k, 2)
+            self.label_5.setText(f'Нули функции y = 0 при x = {x_0}, ({x_0};0)')
+            if k > 0:
+                x = np.linspace(x_0, 20, 10000)
             else:
-                x = np.linspace(-20, self.x_0, 10000)
+                x = np.linspace(-20, x_0, 10000)
         fig, ax = plt.subplots()
-        k, b = float(self.k), float(self.b)
         fig.set_size_inches(2, 2)
         ax.set_ylim(-20, 20)
         ax.set_xlim(-20, 20)

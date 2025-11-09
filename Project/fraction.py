@@ -19,9 +19,10 @@ class Fraction(QWidget, Fraction_design):
             self.cof.show()
         else:
             try:
+                test = [float(self.lineEdit.text()), float(self.lineEdit_2.text())]
                 self.coefficient = [self.lineEdit.text(), self.lineEdit_2.text()]
-                self.descripion_line = Description_fraction_function(self.coefficient)
-                self.descripion_line.show()
+                self.descripion_fraction = Description_fraction_function(self.coefficient)
+                self.descripion_fraction.show()
                 self.close()
             except ValueError:
                 self.cof = Coefficient('Вы написали не числа')

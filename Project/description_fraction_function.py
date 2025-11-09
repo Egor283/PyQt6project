@@ -25,33 +25,29 @@ class Description_fraction_function(QWidget, Description_fraction_function_desig
 
     def initUi(self):
         self.pushButton.clicked.connect(self.doo)
-        if float(self.k) and float(self.b):
+        k, b = float(self.k), float(self.b)
+        if k and b:
             self.label.setText(f'y = {self.k_label}/x + {self.b} ; дробная функция, графиком является гипербола')
-        elif float(self.k) and not float(self.b):
-            if self.k == '1':
-                self.label.setText(f'y = 1/x ; дробная функция, графиком является гипербола')
-            elif self.k == '-1':
-                self.label.setText(f'y = -1/x ; дробная функция, графиком является гипербола')
-            else:
-                self.label.setText(f'y = {self.k_label}/x ; дробная функция, графиком является гипербола')
+            self.label_2.setText(f'D(f) x = (-∞;0)∩(0;+∞);E(f) y = (-∞;{self.b})∩({self.b};+∞)')
+        elif k and not b:
+            self.label.setText(f'y = {self.k_label}/x ; дробная функция, графиком является гипербола')
+            self.label_2.setText(f'D(f) x = (-∞;0)∩(0;+∞);E(f) y = (-∞;{self.b})∩({self.b};+∞)')
         else:
-            self.label.setText(f'y = {self.b} ; дробная функция, графиком является гипербола')
-        self.label_2.setText(f'D(f) x = (-∞;0)∩(0;+∞);E(f) y = (-∞;{self.b})∩({self.b};+∞)')
-        if float(self.k) < 0:
+            self.label.setText(f'y = {self.b} ; линейная функция, графиком является прямая')
+        if k < 0:
             self.label_3.setText(f'f(x) ↗ возрастает')
-        elif float(self.k) > 0:
+        elif k > 0:
             self.label_3.setText(f'f(x) ↘ убывает')
         else:
             self.label_3.setText(f'f(x) параллельно оси Ox')
         self.label_4.setText(f'Пересечение с Осью y на данном графике не существует')
-        if float(self.b):
-            self.x_0 = round(float(self.k) / -float(self.b), 2)
-            self.label_5.setText(f'Нули функции y = 0 при x = {self.x_0}, ({self.x_0};0)')
+        if b:
+            x_0 = round(k / -b, 3)
+            self.label_5.setText(f'Нули функции y = 0 при x = {x_0}, ({x_0};0)')
         else:
             self.label_5.setText(f'Нулей не существует')
         x = np.linspace(-20, 20, 1000)
         fig, ax = plt.subplots()
-        k, b = float(self.k), float(self.b)
         fig.set_size_inches(2, 2)
         ax.set_ylim(-20, 20)
         ax.set_xlim(-20, 20)

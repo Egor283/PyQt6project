@@ -9,7 +9,7 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Description_fraction_function_design(object):
+class Description_square_function_design(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(515, 255)
@@ -55,7 +55,7 @@ class Description_fraction_function_design(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Description_fraction"))
+        Form.setWindowTitle(_translate("Form", "Description_square"))
         self.label.setText(_translate("Form", ""))
         self.label_2.setText(_translate("Form", ""))
         self.label_3.setText(_translate("Form", ""))

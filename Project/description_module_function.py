@@ -25,28 +25,37 @@ class Description_module_function(QWidget, Description_module_function_design):
 
     def initUi(self):
         self.pushButton.clicked.connect(self.doo)
-        if float(self.k) and float(self.b):
-            self.label.setText(f'y = |{self.k_label}x + {self.b}| ; линейная функция, графиком является прямая')
-        elif float(self.k) and not float(self.b):
-            if self.k == '1':
-                self.label.setText(f'y = |x| ; линейная функция, графиком является прямая')
-            elif self.k == '-1':
-                self.label.setText(f'y = |-x| ; линейная функция, графиком является прямая')
+        k, b = float(self.k), float(self.b)
+        if k and b:
+            if b > 0:
+                self.label.setText(f'y = |{self.k_label}x + {self.b}|; линейная функция, графиком является прямая')
             else:
-                self.label.setText(f'y = |{self.k_label}x| ; линейная функция, графиком является прямая')
-        else:
+                self.label.setText(f'y = |{self.k_label}x - {self.b[1:]}|; линейная функция, графиком является прямая')
+            self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = (0;+∞)')
+        elif k and not b:
+            self.label.setText(f'y = |{self.k_label}x| ; линейная функция, графиком является прямая')
+            self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = (0;+∞)')
+        elif not k and b:
             self.label.setText(f'y = |{self.b}| ; линейная функция, графиком является прямая')
-        self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = (0;+∞)')
-        if self.k != '0':
-            self.x_0 = round(-float(self.b) / float(self.k), 2)
-            self.label_5.setText(f'Нули функции y = 0 при x = {self.x_0}')
-            self.label_3.setText(f'f(x) ↘ убывает при x (-∞;{self.x_0}); f(x) ↗ возрастает при x ({self.x_0});+∞)')
+            self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = {abs(b)}')
+        else:
+            self.label.setText(f'y = 0 ; линейная функция, графиком является прямая')
+            self.label_2.setText(f'D(f) x = (-∞;+∞);E(f) y = 0')
+        if k != 0:
+            if b:
+                x_0 = round(-b / k, 2)
+            else:
+                x_0 = 0
+            self.label_5.setText(f'Нули функции y = 0 при x = {x_0}')
+            self.label_3.setText(f'f(x) ↘ убывает при x (-∞;{x_0}); f(x) ↗ возрастает при x ({x_0};+∞)')
+        elif k == 0 and b == 0:
+            self.label_3.setText(f'f(x) параллельно оси Ox')
+            self.label_5.setText(f'y = 0 при любом x')
         else:
             self.label_3.setText(f'f(x) параллельно оси Ox')
             self.label_5.setText(f'Нулей не существует')
-        self.label_4.setText(f'Пересечение с осью y (0;{self.b})')
+        self.label_4.setText(f'Пересечение с осью y (0;{abs(b)})')
         fig, ax = plt.subplots()
-        k, b = float(self.k), float(self.b)
         ax.set_ylim(-20, 20)
         ax.set_xlim(-20, 20)
         fig.set_size_inches(5, 4)

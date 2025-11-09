@@ -20,6 +20,7 @@ class Line(QWidget, Line_design):
             self.cof.show()
         else:
             try:
+                test = [float(self.lineEdit.text()), float(self.lineEdit_2.text())]
                 self.coefficient = [self.lineEdit.text(), self.lineEdit_2.text()]
                 self.descripion_line = Description_line_function(self.coefficient)
                 self.descripion_line.show()

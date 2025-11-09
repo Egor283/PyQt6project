@@ -19,9 +19,10 @@ class Root(QWidget, Root_design):
             self.cof.show()
         else:
             try:
+                test = [float(self.lineEdit.text()), float(self.lineEdit_2.text())]
                 self.coefficient = [self.lineEdit.text(), self.lineEdit_2.text()]
-                self.descripion_line = Description_root_function(self.coefficient)
-                self.descripion_line.show()
+                self.descripion_root = Description_root_function(self.coefficient)
+                self.descripion_root.show()
                 self.close()
             except ValueError:
                 self.cof = Coefficient('Вы написали не числа')
