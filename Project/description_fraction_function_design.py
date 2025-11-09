@@ -9,10 +9,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Description_line_function_design(object):
+class Description_fraction_function_design(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(495, 255)
+        Form.resize(515, 255)
         self.label = QtWidgets.QLabel(parent=Form)
         self.label.setGeometry(QtCore.QRect(10, 5, 501, 41))
         font = QtGui.QFont()
@@ -55,7 +55,7 @@ class Description_line_function_design(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Description_line"))
+        Form.setWindowTitle(_translate("Form", "Description_fraction"))
         self.label.setText(_translate("Form", ""))
         self.label_2.setText(_translate("Form", ""))
         self.label_3.setText(_translate("Form", ""))

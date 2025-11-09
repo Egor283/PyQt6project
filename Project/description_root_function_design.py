@@ -9,10 +9,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Description_line_function_design(object):
+class Description_root_function_design(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(495, 255)
+        Form.resize(505, 255)
         self.label = QtWidgets.QLabel(parent=Form)
         self.label.setGeometry(QtCore.QRect(10, 5, 501, 41))
         font = QtGui.QFont()
@@ -20,19 +20,19 @@ class Description_line_function_design(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(parent=Form)
-        self.label_2.setGeometry(QtCore.QRect(10, 45, 501, 41))
+        self.label_2.setGeometry(QtCore.QRect(10, 45, 401, 41))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(parent=Form)
-        self.label_3.setGeometry(QtCore.QRect(10, 85, 501, 41))
+        self.label_3.setGeometry(QtCore.QRect(10, 85, 401, 41))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(parent=Form)
-        self.label_4.setGeometry(QtCore.QRect(10, 125, 501, 41))
+        self.label_4.setGeometry(QtCore.QRect(10, 125, 401, 41))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.label_4.setFont(font)
@@ -55,7 +55,7 @@ class Description_line_function_design(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Description_line"))
+        Form.setWindowTitle(_translate("Form", "Description_root"))
         self.label.setText(_translate("Form", ""))
         self.label_2.setText(_translate("Form", ""))
         self.label_3.setText(_translate("Form", ""))

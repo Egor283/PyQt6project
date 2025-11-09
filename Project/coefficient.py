@@ -1,13 +1,14 @@
 import sys
 from PyQt6.QtGui import QPixmap, QImage
 from PyQt6.QtWidgets import QApplication, QMainWindow, QButtonGroup, QWidget
-from confirmation_design import Confirmation_design
+from coefficient_design import Coefficient_design
 
 
-class Confirmation(QWidget, Confirmation_design):
-    def __init__(self, *args):
+class Coefficient(QWidget, Coefficient_design):
+    def __init__(self, args):
         super().__init__()
         self.setupUi(self)
+        self.label.setText(args)
         self.intiUi()
 
     def intiUi(self):

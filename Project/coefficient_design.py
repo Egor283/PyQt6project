@@ -9,12 +9,12 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Confirmation_design(object):
+class Coefficient_design(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(270, 113)
+        Form.resize(300, 113)
         self.label = QtWidgets.QLabel(parent=Form)
-        self.label.setGeometry(QtCore.QRect(10, 10, 311, 31))
+        self.label.setGeometry(QtCore.QRect(10, 10, 331, 31))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.label.setFont(font)
@@ -32,5 +32,5 @@ class Confirmation_design(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Confirmation"))
-        self.label.setText(_translate("Form", "Вы не выбрали тип функции"))
+        self.label.setText(_translate("Form", ""))
         self.pushButton.setText(_translate("Form", "Ок"))
